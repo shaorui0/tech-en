@@ -1,167 +1,167 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Tech &amp; AI · 中文</title>
-  <link href="https://shaorui0.github.io/tech/tech/atom.xml" rel="self"/>
-  <link href="https://shaorui0.github.io/tech/tech/"/>
+  <title>Tech &amp; AI</title>
+  <link href="https://shaorui0.github.io/tech-en/tech-en/atom.xml" rel="self"/>
+  <link href="https://shaorui0.github.io/tech-en/tech-en/"/>
   <updated>2026-09-23T14:32:11.097Z</updated>
-  <id>https://shaorui0.github.io/tech/tech/</id>
+  <id>https://shaorui0.github.io/tech-en/tech-en/</id>
   <author><name>Rui Shao</name></author>
   <entry>
     <title>Developer Guardrails on Kubernetes: RBAC Says Which Doors, Admission Says Which Fields</title>
-    <link href="https://shaorui0.github.io/tech/2026/09/23/2026-09-23_kubernetes-developer-guardrails_en/"/>
-    <id>https://shaorui0.github.io/tech/2026/09/23/2026-09-23_kubernetes-developer-guardrails_en/</id>
+    <link href="https://shaorui0.github.io/tech-en/2026/09/23/2026-09-23_kubernetes-developer-guardrails_en/"/>
+    <id>https://shaorui0.github.io/tech-en/2026/09/23/2026-09-23_kubernetes-developer-guardrails_en/</id>
     <updated>2026-09-23T14:32:11.097Z</updated>
     <published>2026-09-22T15:00:00.000Z</published>
     <content type="html"><![CDATA[<p>Also in Chinese: 中文版 Why Access to our clusters came in three flavors: admin, read-only, and a “developer” role that was read-only plus the right to delete pods and jobs. In practice that meant any change beyond restarting something — an env var, an image tag, a config tweak —…</p>]]></content>
   </entry>
   <entry>
     <title>让开发者自己改 deployment，但不能碰副本数和资源</title>
-    <link href="https://shaorui0.github.io/tech/2026/09/23/2026-09-23_kubernetes-developer-guardrails_zh/"/>
-    <id>https://shaorui0.github.io/tech/2026/09/23/2026-09-23_kubernetes-developer-guardrails_zh/</id>
+    <link href="https://shaorui0.github.io/tech-en/2026/09/23/2026-09-23_kubernetes-developer-guardrails_zh/"/>
+    <id>https://shaorui0.github.io/tech-en/2026/09/23/2026-09-23_kubernetes-developer-guardrails_zh/</id>
     <updated>2026-09-24T07:54:02.177Z</updated>
     <published>2026-09-22T15:00:00.000Z</published>
     <content type="html"><![CDATA[<p>英文版：English 起因 集群访问原来分三种：admin、只读，以及一个&quot;developer&quot;角色，也就是只读再加删 pod、删 job 的权限。结果除了重启，任何改动都得找 infra，哪怕只是一个环境变量、一个镜像 tag、一处配置。开发者想自己动手，infra 又不想发一个顺手就能把副本数翻倍、把内存 request 提三倍的角色。一个团队的改动变成整个集群的节点压力和成本，走的就是这两个字段。 所以需求很具体：对工作负载有完整写权限，唯独 spec.replicas 和 containers[].resources…</p>]]></content>
   </entry>
   <entry>
     <title>Choosing Doris Without a Speed Win: A Constraint-First Case, Argued Upward</title>
-    <link href="https://shaorui0.github.io/tech/2026/09/22/2026-09-22_picking-doris-without-a-speed-win_en/"/>
-    <id>https://shaorui0.github.io/tech/2026/09/22/2026-09-22_picking-doris-without-a-speed-win_en/</id>
+    <link href="https://shaorui0.github.io/tech-en/2026/09/22/2026-09-22_picking-doris-without-a-speed-win_en/"/>
+    <id>https://shaorui0.github.io/tech-en/2026/09/22/2026-09-22_picking-doris-without-a-speed-win_en/</id>
     <updated>2026-09-23T14:32:11.097Z</updated>
     <published>2026-09-21T15:00:00.000Z</published>
     <content type="html"><![CDATA[<p>Also in Chinese: 中文版 What this is about The case study is about how the migration was engineered — memory, compaction, routing. This is about the decision one layer above it: how we picked the engine in the first place, and how that pick got defended to leadership when the most…</p>]]></content>
   </entry>
   <entry>
     <title>一条分区规则，静默算错了六个租户</title>
-    <link href="https://shaorui0.github.io/tech/2026/09/22/2026-09-22_no-counterexample-no-criterion_zh/"/>
-    <id>https://shaorui0.github.io/tech/2026/09/22/2026-09-22_no-counterexample-no-criterion_zh/</id>
+    <link href="https://shaorui0.github.io/tech-en/2026/09/22/2026-09-22_no-counterexample-no-criterion_zh/"/>
+    <id>https://shaorui0.github.io/tech-en/2026/09/22/2026-09-22_no-counterexample-no-criterion_zh/</id>
     <updated>2026-09-23T09:32:51.929Z</updated>
     <published>2026-09-21T15:00:00.000Z</published>
     <content type="html"><![CDATA[<p>前一篇讲判定层怎么不腐烂，那里所有的判定都能写成确定函数，能自测。这一篇讲剩下的那一半：有一类判断写不成确定函数，因为它需要的知识不在数据里。 一条规则，静默算错六个租户 一次从 ClickHouse 到 Doris 的迁移，十三个租户，同一张表要在目标库重建分区。分区键取源表的一个时间列，看上去是一条规则能办完的事。 实际情况是这个时间列逐租户不同。七个租户用的是告警产生时间，另外六个用的是入库时间。两个列之间差着一整条链路的延迟。 按一条规则处理的后果：那六个租户的数据落进错误的月份分区。而分区列是 UNIQUE KEY 的一部分，月份错，key…</p>]]></content>
   </entry>
   <entry>
     <title>选 Doris 那次，benchmark 明明更差</title>
-    <link href="https://shaorui0.github.io/tech/2026/09/22/2026-09-22_picking-doris-without-a-speed-win_zh/"/>
-    <id>https://shaorui0.github.io/tech/2026/09/22/2026-09-22_picking-doris-without-a-speed-win_zh/</id>
+    <link href="https://shaorui0.github.io/tech-en/2026/09/22/2026-09-22_picking-doris-without-a-speed-win_zh/"/>
+    <id>https://shaorui0.github.io/tech-en/2026/09/22/2026-09-22_picking-doris-without-a-speed-win_zh/</id>
     <updated>2026-09-24T07:54:02.175Z</updated>
     <published>2026-09-21T15:00:00.000Z</published>
     <content type="html"><![CDATA[<p>英文版：English 我们跑了 Doris 和 ClickHouse 的 benchmark，用自己的一手数据，结果 ClickHouse 在平表扫描上领先 1.2–2.5 倍。这个数字要是被当成选型的答案，讨论到这就该结束了，而且结束得是错的方向。案例研究（《重构反欺诈事件存储》）讲的是这次迁移怎么工程化的；这一篇讲的是它上面那层决策：明明 benchmark 更差，为什么还是选了 Doris，这件事后来又是怎么讲给上面听、站住的。 benchmark 之外的问题 任何引擎选型的讨论都容易滑向 benchmark…</p>]]></content>
   </entry>
   <entry>
     <title>从一个探针，到一个能用的判定层</title>
-    <link href="https://shaorui0.github.io/tech/2026/09/05/2026-09-05_one-probe-is-not-a-system_zh/"/>
-    <id>https://shaorui0.github.io/tech/2026/09/05/2026-09-05_one-probe-is-not-a-system_zh/</id>
+    <link href="https://shaorui0.github.io/tech-en/2026/09/05/2026-09-05_one-probe-is-not-a-system_zh/"/>
+    <id>https://shaorui0.github.io/tech-en/2026/09/05/2026-09-05_one-probe-is-not-a-system_zh/</id>
     <updated>2026-09-23T09:36:43.939Z</updated>
     <published>2026-09-04T15:00:00.000Z</published>
     <content type="html"><![CDATA[<p>前一篇讲了为什么要有探针层，以及第一个探针跑在生产规则集上的结果。写出那一个探针只证明了形态可行，离一个团队真正能依赖的判定层还有距离，这一篇讲的就是中间隔着什么。 探针库和告警规则其实是同一类东西：一堆随时间累积的判定。告警规则已经把这类东西的结局演示过一次，「怎么做成一个能用的系统」这个问题，其实等价于「怎么不重演那个结局」。 先看那个已知的结局 告警规则腐烂有三条机制，根子都在激励结构上，跟执行力关系不大： 机制 内容 加告警免费 新增一条是一行代码，没有准入成本 删告警受罚 删掉之后万一出事，责任在删的人身上；留着不会有人怪你 失效无声…</p>]]></content>
   </entry>
   <entry>
     <title>人看 dashboard，agent 该看什么</title>
-    <link href="https://shaorui0.github.io/tech/2026/09/03/2026-09-03_dashboard-is-for-human-eyes_zh/"/>
-    <id>https://shaorui0.github.io/tech/2026/09/03/2026-09-03_dashboard-is-for-human-eyes_zh/</id>
+    <link href="https://shaorui0.github.io/tech-en/2026/09/03/2026-09-03_dashboard-is-for-human-eyes_zh/"/>
+    <id>https://shaorui0.github.io/tech-en/2026/09/03/2026-09-03_dashboard-is-for-human-eyes_zh/</id>
     <updated>2026-09-23T09:37:19.249Z</updated>
     <published>2026-09-02T15:00:00.000Z</published>
     <content type="html"><![CDATA[<p>667 条生产告警规则里，有 94 条已经静默失效，这是文章最后写的第一个探针跑出来的结果。往回倒的起点是一个更基础的问题：人看 dashboard 靠视觉模式识别，要先选一个时间窗才能在图上比较；agent 不需要时间窗，因为比较逻辑可以直接写进表达式里。时间窗只是给人眼用的中间产物，换掉消费者，它就该消失。这条线一路推下去，会经过认知机制、告警规则的旧形态、返回值该装什么，最后落到一组探针该怎么设计、又能查出什么。 两种不同的认知机制 人看 dashboard…</p>]]></content>
   </entry>
   <entry>
     <title>复盘时争「哪个才是根因」，为什么总争不出结果</title>
-    <link href="https://shaorui0.github.io/tech/2026/09/03/2026-09-03_root-cause-is-chosen-not-found_zh/"/>
-    <id>https://shaorui0.github.io/tech/2026/09/03/2026-09-03_root-cause-is-chosen-not-found_zh/</id>
+    <link href="https://shaorui0.github.io/tech-en/2026/09/03/2026-09-03_root-cause-is-chosen-not-found_zh/"/>
+    <id>https://shaorui0.github.io/tech-en/2026/09/03/2026-09-03_root-cause-is-chosen-not-found_zh/</id>
     <updated>2026-09-23T09:07:20.455Z</updated>
     <published>2026-09-02T15:00:00.000Z</published>
     <content type="html"><![CDATA[<p>前段时间处理过一次 Kafka 消费积压。告警是多个租户的 consumer lag 一路上涨，查到最后，问题出在 ClickHouse 的系统表里（完整复盘）。写复盘时出现了两种说法：一种说根因是 CH 升级留下的旧表，一种说是服务器内存上限给得太低。两种都有道理，谁也说服不了谁。 后来我想明白了，这个争论本身问错了。根因并不是事故里某个客观存在的点，它是我们在一条因果链上挑出来下刀的位置。挑哪里，看哪一刀最便宜、最可靠。 把链画出来 「根因是 X」这种句式会逼着人把一条链压成一个词。那次事故的链是这样的： flowchart TB…</p>]]></content>
   </entry>
   <entry>
     <title>两千行代码，为了把注意力从三件事上省出来</title>
-    <link href="https://shaorui0.github.io/tech/2026/08/10/2026-08-10_agent-harness-wal-compaction-envelope_zh/"/>
-    <id>https://shaorui0.github.io/tech/2026/08/10/2026-08-10_agent-harness-wal-compaction-envelope_zh/</id>
+    <link href="https://shaorui0.github.io/tech-en/2026/08/10/2026-08-10_agent-harness-wal-compaction-envelope_zh/"/>
+    <id>https://shaorui0.github.io/tech-en/2026/08/10/2026-08-10_agent-harness-wal-compaction-envelope_zh/</id>
     <updated>2026-09-23T09:29:21.680Z</updated>
     <published>2026-08-09T15:00:00.000Z</published>
     <content type="html"><![CDATA[<p>我手上同时开着四五个项目，切回其中一个时，前二十分钟基本是同一套动作：翻文档、翻聊天记录、git log 看最近改了什么，才想起来上次卡在哪。干活本身反而不占时间。 AI 把执行成本压下去之后，事情没有变少，反而变多了。省下来的时间没落到我身上，落到了&quot;看不过来&quot;上：真正稀缺的是注意力，不是执行力。 所以我给工作项目单独写了一个 repo，叫 agent-harness，全部代码两千行出头。目标只有一个：把注意力从三件事上撤出来。session 开头重新搞清楚项目状态、session…</p>]]></content>
   </entry>
   <entry>
     <title>查询很慢，但所有指标都是绿的</title>
-    <link href="https://shaorui0.github.io/tech/2026/08/10/2026-08-10_all-metrics-green-but-queries-slow_zh/"/>
-    <id>https://shaorui0.github.io/tech/2026/08/10/2026-08-10_all-metrics-green-but-queries-slow_zh/</id>
+    <link href="https://shaorui0.github.io/tech-en/2026/08/10/2026-08-10_all-metrics-green-but-queries-slow_zh/"/>
+    <id>https://shaorui0.github.io/tech-en/2026/08/10/2026-08-10_all-metrics-green-but-queries-slow_zh/</id>
     <updated>2026-09-23T09:23:57.226Z</updated>
     <published>2026-08-09T15:00:00.000Z</published>
     <content type="html"><![CDATA[<p>一个所有指标都正常的慢查询 那张表 4.0 TB，55 亿行，3727 列，存算分离，数据在对象存储上，八个 BE 每个挂 1.3 TB 本地 NVMe 做 file cache。一条最朴素的点查，按业务事件 ID 取十行，跑了 144 秒。 第一反应当然是对象存储慢。于是我把同一个 ID 反复查，让缓存暖起来。暖之后仍然要 1.12 秒。这一次的现场是：缓存全命中，远程读次数为零，CPU 不高，内存不高，对象存储带宽用了不到 1%。 手上那套以主机资源为中心的 dashboard，在这个故障面前一片绿。 真因跟存储没有关系。事件 ID…</p>]]></content>
   </entry>
   <entry>
     <title>我到底在怎么用 Claude Code</title>
-    <link href="https://shaorui0.github.io/tech/2026/08/04/2026-08-04_how-i-use-claude-code-context-engineering-and-harness_zh/"/>
-    <id>https://shaorui0.github.io/tech/2026/08/04/2026-08-04_how-i-use-claude-code-context-engineering-and-harness_zh/</id>
+    <link href="https://shaorui0.github.io/tech-en/2026/08/04/2026-08-04_how-i-use-claude-code-context-engineering-and-harness_zh/"/>
+    <id>https://shaorui0.github.io/tech-en/2026/08/04/2026-08-04_how-i-use-claude-code-context-engineering-and-harness_zh/</id>
     <updated>2026-09-23T09:27:57.828Z</updated>
     <published>2026-08-03T15:00:00.000Z</published>
     <content type="html"><![CDATA[<p>先说清楚这篇要回答什么 已经写过一个十一篇的系列，讲 SRE 和 agent 的同构性，讲 Spec&#x2F;Loop&#x2F;Hook&#x2F;Fork 四个控制论原语，语言是抽象层的为什么。这篇不重复，只回答一个更朴素的问题：把我天天在用的 context-infrastructure 这个 repo 摊开，我到底在怎么用 Claude Code。 我每次打开任务前做的一件事 任何任务开始之前，我先让 agent 读四个文件，不直接开始干活。SOUL.md 定义它要扮演的角色和底层逻辑，USER.md 记录我是谁、我的技术兴趣和沟通偏好，WORKSPACE.md 是整个…</p>]]></content>
   </entry>
   <entry>
     <title>Alert Governance: Turning the Pager from Noise Back into Decision Signal</title>
-    <link href="https://shaorui0.github.io/tech/2026/08/03/2026-08-03_alert-governance_en/"/>
-    <id>https://shaorui0.github.io/tech/2026/08/03/2026-08-03_alert-governance_en/</id>
+    <link href="https://shaorui0.github.io/tech-en/2026/08/03/2026-08-03_alert-governance_en/"/>
+    <id>https://shaorui0.github.io/tech-en/2026/08/03/2026-08-03_alert-governance_en/</id>
     <updated>2026-09-23T14:32:11.090Z</updated>
     <published>2026-08-02T15:00:00.000Z</published>
     <content type="html"><![CDATA[<p>Also in Chinese: 中文版 Why By the time this became a project, the pager had stopped being evidence of anything. The baseline: 367 alert rules carried the label that routes to OpsGenie, spread across 30 rule files, and OpsGenie was absorbing roughly 960 alerts a day — about 85% of…</p>]]></content>
   </entry>
   <entry>
     <title>An audit of my own radar</title>
-    <link href="https://shaorui0.github.io/tech/2026/08/03/2026-08-03_an-audit-of-my-own-radar_en/"/>
-    <id>https://shaorui0.github.io/tech/2026/08/03/2026-08-03_an-audit-of-my-own-radar_en/</id>
-    <updated>2026-09-23T14:32:11.094Z</updated>
+    <link href="https://shaorui0.github.io/tech-en/2026/08/03/2026-08-03_an-audit-of-my-own-radar_en/"/>
+    <id>https://shaorui0.github.io/tech-en/2026/08/03/2026-08-03_an-audit-of-my-own-radar_en/</id>
+    <updated>2026-09-24T07:54:02.171Z</updated>
     <published>2026-08-02T15:00:00.000Z</published>
     <content type="html"><![CDATA[<p>Also in Chinese: 中文版 How the scores are produced The method comes first, because without it the numbers are noise. Each depth score on the radar is derived from evidence density: the count and depth of flagship artifacts (incident write-ups with quoted evidence, measured results…</p>]]></content>
   </entry>
   <entry>
     <title>Compiling a Document into a Control Loop: A Machine-Level Configuration Reconciler for 5G vRAN Bare Metal</title>
-    <link href="https://shaorui0.github.io/tech/2026/08/03/2026-08-03_compiling-a-document-into-a-control-loop_en/"/>
-    <id>https://shaorui0.github.io/tech/2026/08/03/2026-08-03_compiling-a-document-into-a-control-loop_en/</id>
+    <link href="https://shaorui0.github.io/tech-en/2026/08/03/2026-08-03_compiling-a-document-into-a-control-loop_en/"/>
+    <id>https://shaorui0.github.io/tech-en/2026/08/03/2026-08-03_compiling-a-document-into-a-control-loop_en/</id>
     <updated>2026-09-23T14:32:11.093Z</updated>
     <published>2026-08-02T15:00:00.000Z</published>
     <content type="html"><![CDATA[<p>Also in Chinese: 中文版 What it was, and why Kubernetes runs a reconcile loop over containers: declare a desired state, observe the actual state, converge the difference, repeat. This project pushed that philosophy one layer down, onto the bare-metal hardware that carries real-time…</p>]]></content>
   </entry>
   <entry>
     <title>Production Kubernetes Upgrade Engineering: 50 Clusters, 1.24 → 1.29, Zero Incidents</title>
-    <link href="https://shaorui0.github.io/tech/2026/08/03/2026-08-03_kubernetes-upgrade-engineering_en/"/>
-    <id>https://shaorui0.github.io/tech/2026/08/03/2026-08-03_kubernetes-upgrade-engineering_en/</id>
+    <link href="https://shaorui0.github.io/tech-en/2026/08/03/2026-08-03_kubernetes-upgrade-engineering_en/"/>
+    <id>https://shaorui0.github.io/tech-en/2026/08/03/2026-08-03_kubernetes-upgrade-engineering_en/</id>
     <updated>2026-09-23T14:32:11.086Z</updated>
     <published>2026-08-02T15:00:00.000Z</published>
     <content type="html"><![CDATA[<p>Also in Chinese: 中文版 Why Kubernetes 1.24 was aging out of support; every unsupported minor compounds CVE exposure and compliance risk. The fleet was 50 self-managed clusters on AWS — kubeadm control planes, ASG-backed workers — and the existing practice did not scale: a single…</p>]]></content>
   </entry>
   <entry>
     <title>Fan-Out Is the Floor: Two Targeted Optimizations for Query Shapes Nobody Controls</title>
-    <link href="https://shaorui0.github.io/tech/2026/08/03/2026-08-03_fan-out-is-the-floor_en/"/>
-    <id>https://shaorui0.github.io/tech/2026/08/03/2026-08-03_fan-out-is-the-floor_en/</id>
+    <link href="https://shaorui0.github.io/tech-en/2026/08/03/2026-08-03_fan-out-is-the-floor_en/"/>
+    <id>https://shaorui0.github.io/tech-en/2026/08/03/2026-08-03_fan-out-is-the-floor_en/</id>
     <updated>2026-09-23T14:32:11.089Z</updated>
     <published>2026-08-02T15:00:00.000Z</published>
     <content type="html"><![CDATA[<p>Also in Chinese: 中文版 Where this sits The analytics platform was rebuilt in three layers, and they solve different kinds of problem. Migration replaced the substrate: off ClickHouse onto Apache Doris with compute-storage separation. Not because Doris was faster — ClickHouse still…</p>]]></content>
   </entry>
   <entry>
     <title>Order of operations under fire</title>
-    <link href="https://shaorui0.github.io/tech/2026/08/03/2026-08-03_order-of-operations-under-fire_en/"/>
-    <id>https://shaorui0.github.io/tech/2026/08/03/2026-08-03_order-of-operations-under-fire_en/</id>
+    <link href="https://shaorui0.github.io/tech-en/2026/08/03/2026-08-03_order-of-operations-under-fire_en/"/>
+    <id>https://shaorui0.github.io/tech-en/2026/08/03/2026-08-03_order-of-operations-under-fire_en/</id>
     <updated>2026-09-23T14:32:11.084Z</updated>
     <published>2026-08-02T15:00:00.000Z</published>
     <content type="html"><![CDATA[<p>Also in Chinese: 中文版 Symptom One tenant’s query rate spiked far above baseline. Serving latency rose, error rates climbed on the dependency chain, and asynchronous recomputation began competing with the message queue and the database for the same headroom. The sequence, and why…</p>]]></content>
   </entry>
   <entry>
     <title>Engine-Level Query Routing: EXPLAIN ROUTE PLAN</title>
-    <link href="https://shaorui0.github.io/tech/2026/08/03/2026-08-03_engine-level-query-routing_en/"/>
-    <id>https://shaorui0.github.io/tech/2026/08/03/2026-08-03_engine-level-query-routing_en/</id>
-    <updated>2026-09-23T14:32:11.087Z</updated>
+    <link href="https://shaorui0.github.io/tech-en/2026/08/03/2026-08-03_engine-level-query-routing_en/"/>
+    <id>https://shaorui0.github.io/tech-en/2026/08/03/2026-08-03_engine-level-query-routing_en/</id>
+    <updated>2026-09-24T07:54:02.161Z</updated>
     <published>2026-08-02T15:00:00.000Z</published>
     <content type="html"><![CDATA[<p>Also in Chinese: 中文版 Why the decision has to happen before execution After the migration consolidated serving and analytics onto one Apache Doris deployment, fewer than 1% of queries were heavy — but a single misplaced heavy query could starve the shared light pool. Reactive…</p>]]></content>
   </entry>
   <entry>
-    <title>Rebuilding a 5-billion-row event store, down to the engine</title>
-    <link href="https://shaorui0.github.io/tech/2026/08/03/2026-08-03_rebuilding-a-5b-row-event-store_en/"/>
-    <id>https://shaorui0.github.io/tech/2026/08/03/2026-08-03_rebuilding-a-5b-row-event-store_en/</id>
-    <updated>2026-09-23T14:32:11.082Z</updated>
+    <title>Rebuilding the fraud event store, down to the engine</title>
+    <link href="https://shaorui0.github.io/tech-en/2026/08/03/2026-08-03_rebuilding-a-5b-row-event-store_en/"/>
+    <id>https://shaorui0.github.io/tech-en/2026/08/03/2026-08-03_rebuilding-a-5b-row-event-store_en/</id>
+    <updated>2026-09-24T07:54:02.154Z</updated>
     <published>2026-08-02T15:00:00.000Z</published>
     <content type="html"><![CDATA[<p>Also in Chinese: 中文版 The one-paragraph version Our fraud-analytics event layer serves two increasingly conflicting workloads: millisecond point lookups on the serving path, and a growing stream of unpredictable ad-hoc analytics — increasingly generated by AI-agent-facing product…</p>]]></content>
   </entry>
   <entry>
     <title>Designing the Elastic Compute Tier: Discrete Capacity, One Write Primitive, Readiness That Cannot Lie</title>
-    <link href="https://shaorui0.github.io/tech/2026/08/03/2026-08-03_designing-the-elastic-compute-tier_en/"/>
-    <id>https://shaorui0.github.io/tech/2026/08/03/2026-08-03_designing-the-elastic-compute-tier_en/</id>
+    <link href="https://shaorui0.github.io/tech-en/2026/08/03/2026-08-03_designing-the-elastic-compute-tier_en/"/>
+    <id>https://shaorui0.github.io/tech-en/2026/08/03/2026-08-03_designing-the-elastic-compute-tier_en/</id>
     <updated>2026-09-23T14:32:11.089Z</updated>
     <published>2026-08-02T15:00:00.000Z</published>
     <content type="html"><![CDATA[<p>Also in Chinese: 中文版 The architecture, as five decisions The pool itself is unremarkable; the design is in what it refuses to do. Five decisions carry the whole thing. 1 — Physical isolation, not a workload class. The heavy tail does not get a priority label inside the serving…</p>]]></content>

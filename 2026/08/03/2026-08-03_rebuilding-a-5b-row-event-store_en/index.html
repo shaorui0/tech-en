@@ -1,33 +1,33 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
 <meta name="theme-color" content="#222"><meta name="generator" content="Hexo 8.1.1">
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/tech/favicon.svg">
-  <link rel="icon" type="image/png" sizes="32x32" href="/tech/favicon.svg">
-  <link rel="icon" type="image/png" sizes="16x16" href="/tech/favicon.svg">
-  <link rel="mask-icon" href="/tech/favicon.svg" color="#222">
+  <link rel="apple-touch-icon" sizes="180x180" href="/tech-en/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/tech-en/favicon.svg">
+  <link rel="icon" type="image/png" sizes="16x16" href="/tech-en/favicon.svg">
+  <link rel="mask-icon" href="/tech-en/favicon.svg" color="#222">
 
-<link rel="stylesheet" href="/tech/css/main.css">
+<link rel="stylesheet" href="/tech-en/css/main.css">
 
 
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"shaorui0.github.io","root":"/tech/","images":"/tech/images","scheme":"Gemini","darkmode":false,"version":"8.27.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/tech/js/config.js" defer></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"shaorui0.github.io","root":"/tech-en/","images":"/tech-en/images","scheme":"Gemini","darkmode":false,"version":"8.27.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/tech-en/js/config.js" defer></script>
 
     <meta name="description" content="ClickHouse → Doris compute-storage separation: memory engineering, engine-level routing, two compaction incidents, and numbers that survived re-measurement.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Rebuilding a 5-billion-row event store, down to the engine">
-<meta property="og:url" content="https://shaorui0.github.io/tech/2026/08/03/2026-08-03_rebuilding-a-5b-row-event-store_en/index.html">
-<meta property="og:site_name" content="Tech &amp; AI · 中文">
+<meta property="og:title" content="Rebuilding the fraud event store, down to the engine">
+<meta property="og:url" content="https://shaorui0.github.io/tech-en/2026/08/03/2026-08-03_rebuilding-a-5b-row-event-store_en/index.html">
+<meta property="og:site_name" content="Tech &amp; AI">
 <meta property="og:description" content="ClickHouse → Doris compute-storage separation: memory engineering, engine-level routing, two compaction incidents, and numbers that survived re-measurement.">
-<meta property="og:locale" content="zh_CN">
+<meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2026-08-02T15:00:00.000Z">
-<meta property="article:modified_time" content="2026-09-23T14:32:11.082Z">
+<meta property="article:modified_time" content="2026-09-24T07:54:02.154Z">
 <meta property="article:author" content="Rui Shao">
 <meta property="article:tag" content="Apache Doris">
 <meta property="article:tag" content="ClickHouse">
@@ -37,13 +37,13 @@
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://shaorui0.github.io/tech/2026/08/03/2026-08-03_rebuilding-a-5b-row-event-store_en/">
+<link rel="canonical" href="https://shaorui0.github.io/tech-en/2026/08/03/2026-08-03_rebuilding-a-5b-row-event-store_en/">
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://shaorui0.github.io/tech/2026/08/03/2026-08-03_rebuilding-a-5b-row-event-store_en/","path":"2026/08/03/2026-08-03_rebuilding-a-5b-row-event-store_en/","title":"Rebuilding a 5-billion-row event store, down to the engine"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://shaorui0.github.io/tech-en/2026/08/03/2026-08-03_rebuilding-a-5b-row-event-store_en/","path":"2026/08/03/2026-08-03_rebuilding-a-5b-row-event-store_en/","title":"Rebuilding the fraud event store, down to the engine"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>Rebuilding a 5-billion-row event store, down to the engine | Tech & AI · 中文</title>
+<title>Rebuilding the fraud event store, down to the engine | Tech & AI</title>
   
 
 
@@ -55,12 +55,12 @@
 
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
-<script src="/tech/js/utils.js" defer></script><script src="/tech/js/motion.js" defer></script><script src="/tech/js/sidebar.js" defer></script><script src="/tech/js/next-boot.js" defer></script>
+<script src="/tech-en/js/utils.js" defer></script><script src="/tech-en/js/motion.js" defer></script><script src="/tech-en/js/sidebar.js" defer></script><script src="/tech-en/js/next-boot.js" defer></script>
 
   
 
   <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.10.1/mermaid.min.js","integrity":"sha256-BmQmdWDS8X2OTbrwELWK366LV6escyWhHHe0XCTU/Hk="}}</script>
-  <script src="/tech/js/third-party/tags/mermaid.js" defer></script>
+  <script src="/tech-en/js/third-party/tags/mermaid.js" defer></script>
 
 
 
@@ -73,7 +73,7 @@
 
 
   <noscript>
-    <link rel="stylesheet" href="/tech/css/noscript.css">
+    <link rel="stylesheet" href="/tech-en/css/noscript.css">
   </noscript>
 <!-- hexo injector head_end start --><style>
 .article-toc-wrap {
@@ -113,7 +113,7 @@
     <div class="column">
       <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
   <div class="site-nav-toggle">
-    <div class="toggle" aria-label="切换导航栏" role="button">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
         <span class="toggle-line"></span>
         <span class="toggle-line"></span>
         <span class="toggle-line"></span>
@@ -122,16 +122,16 @@
 
   <div class="site-meta">
 
-    <a href="/tech/" class="brand" rel="start">
+    <a href="/tech-en/" class="brand" rel="start">
       <i class="logo-line"></i>
-      <p class="site-title">Tech & AI · 中文</p>
+      <p class="site-title">Tech & AI</p>
       <i class="logo-line"></i>
     </a>
-      <p class="site-subtitle" itemprop="description">系统、基础设施与 AI</p>
+      <p class="site-subtitle" itemprop="description">Systems, Infrastructure, and AI</p>
   </div>
 
   <div class="site-nav-right">
-    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
     </div>
   </div>
 </div>
@@ -139,7 +139,7 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/tech/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tech/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/tech/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/tech/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-english"><a href="https://shaorui0.github.io/tech-en/" rel="section"><i class="fa fa-language fa-fw"></i>English</a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/tech-en/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-tags"><a href="/tech-en/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-categories"><a href="/tech-en/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-archives"><a href="/tech-en/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li><li class="menu-item menu-item-中文"><a href="https://shaorui0.github.io/tech/" rel="section"><i class="fa fa-language fa-fw"></i>中文</a></li>
   </ul>
 </nav>
 
@@ -154,10 +154,10 @@
     <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
-          文章目录
+          Table of Contents
         </li>
         <li class="sidebar-nav-overview">
-          站点概览
+          Overview
         </li>
       </ul>
 
@@ -171,25 +171,25 @@
         <div class="site-overview-wrap sidebar-panel">
           <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
   <p class="site-author-name" itemprop="name">Rui Shao</p>
-  <div class="site-description" itemprop="description">Rui Shao 的技术博客（中文）— 系统、基础设施与 AI</div>
+  <div class="site-description" itemprop="description">Rui Shao — writing about systems, infrastructure and AI</div>
 </div>
 <div class="site-state-wrap animated">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
-        <a href="/tech/archives/">
+        <a href="/tech-en/archives/">
           <span class="site-state-item-count">58</span>
-          <span class="site-state-item-name">日志</span>
+          <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
-          <a href="/tech/categories/">
+          <a href="/tech-en/categories/">
         <span class="site-state-item-count">19</span>
-        <span class="site-state-item-name">分类</span></a>
+        <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
-          <a href="/tech/tags/">
+          <a href="/tech-en/tags/">
         <span class="site-state-item-count">59</span>
-        <span class="site-state-item-name">标签</span></a>
+        <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
 </div>
@@ -222,26 +222,26 @@
   
   
 
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://shaorui0.github.io/tech/2026/08/03/2026-08-03_rebuilding-a-5b-row-event-store_en/">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://shaorui0.github.io/tech-en/2026/08/03/2026-08-03_rebuilding-a-5b-row-event-store_en/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/tech/images/avatar.gif">
+      <meta itemprop="image" content="/tech-en/images/avatar.gif">
       <meta itemprop="name" content="Rui Shao">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Tech & AI · 中文">
-      <meta itemprop="description" content="Rui Shao 的技术博客（中文）— 系统、基础设施与 AI">
+      <meta itemprop="name" content="Tech & AI">
+      <meta itemprop="description" content="Rui Shao — writing about systems, infrastructure and AI">
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="Rebuilding a 5-billion-row event store, down to the engine | Tech & AI · 中文">
+      <meta itemprop="name" content="Rebuilding the fraud event store, down to the engine | Tech & AI">
       <meta itemprop="description" content="ClickHouse → Doris compute-storage separation: memory engineering, engine-level routing, two compaction incidents, and numbers that survived re-measurement.">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Rebuilding a 5-billion-row event store, down to the engine
+          Rebuilding the fraud event store, down to the engine
         </h1>
 
         <div class="post-meta-container">
@@ -250,24 +250,24 @@
       <span class="post-meta-item-icon">
         <i class="far fa-calendar"></i>
       </span>
-      <span class="post-meta-item-text">发表于</span>
+      <span class="post-meta-item-text">Posted on</span>
 
-      <time title="创建时间：2026-08-03 00:00:00" itemprop="dateCreated datePublished" datetime="2026-08-03T00:00:00+09:00">2026-08-03</time>
+      <time title="Created: 2026-08-03 00:00:00" itemprop="dateCreated datePublished" datetime="2026-08-03T00:00:00+09:00">2026-08-03</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-calendar-check"></i>
       </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-09-23 23:32:11" itemprop="dateModified" datetime="2026-09-23T23:32:11+09:00">2026-09-23</time>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2026-09-24 16:54:02" itemprop="dateModified" datetime="2026-09-24T16:54:02+09:00">2026-09-24</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
       </span>
-      <span class="post-meta-item-text">分类于</span>
+      <span class="post-meta-item-text">In</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/tech/categories/Data-Platform/" itemprop="url" rel="index"><span itemprop="name">Data Platform</span></a>
+          <a href="/tech-en/categories/Data-Platform/" itemprop="url" rel="index"><span itemprop="name">Data Platform</span></a>
         </span>
     </span>
 
@@ -286,8 +286,7 @@
 <p>Also in Chinese: <a href="https://shaorui0.github.io/tech/2026/08/03/2026-08-03_rebuilding-a-5b-row-event-store_zh/">中文版</a></p>
 </blockquote>
 <h2 id="The-one-paragraph-version">The one-paragraph version</h2>
-<p>Our fraud-analytics event layer serves two increasingly conflicting workloads: millisecond point lookups on the serving path, and a growing stream of unpredictable ad-hoc analytics — increasingly generated by AI-agent-facing product features rather than human analysts. The old ClickHouse shared-nothing layer could neither isolate the second workload nor scale for it: one heavy query starves the shared pool, and we measured a <code>SELECT * LIMIT 10</code> that waited <strong>61 s</strong> of wall-clock on <strong>60 ms</strong> of CPU, queued behind a bulk insert. What I did was not a migration. I rebuilt this layer on compute-storage separation — Apache Doris shared-data mode with Iceberg on S3, on Kubernetes — and built query routing into the Doris frontend itself, so the system classifies every query heavy/light in <strong>6–8 ms</strong> before execution and drives a spot compute pool from zero to N and back. The move was certified <strong>99.945%</strong> row-complete over <strong>~5.2B rows / ~4 TiB / up to ~3,700 columns</strong>; point-lookup latency went from <strong>~8 s to ~20 ms</strong>, proven flat across 19× data growth; and along the way I root-caused a chain of engine-level failures, from a Parquet footer explosion that OOMed every backend on a bare <code>COUNT(*)</code> to a compaction death spiral driven by a 46× compression collapse.</p>
-<p><em>(Current state, 2026-09: Iceberg has since been decommissioned; the S3-backed lake layer described above no longer includes an Iceberg table format.)</em></p>
+<p>Our fraud-analytics event layer serves two increasingly conflicting workloads: millisecond point lookups on the serving path, and a growing stream of unpredictable ad-hoc analytics — increasingly generated by AI-agent-facing product features rather than human analysts. The old ClickHouse shared-nothing layer could neither isolate the second workload nor scale for it: one heavy query starves the shared pool, and we measured a <code>SELECT * LIMIT 10</code> that waited <strong>61 s</strong> of wall-clock on <strong>60 ms</strong> of CPU, queued behind a bulk insert. What I did was not a migration. I rebuilt this layer on compute-storage separation — Apache Doris shared-data mode on object storage, on Kubernetes — and built query routing into the Doris frontend itself, so the system classifies every query heavy/light in <strong>6–8 ms</strong> before execution and drives a spot compute pool from zero to N and back. The validated batch was certified <strong>99.945%</strong> row-complete over <strong>~5.2B rows</strong>, inside a target data plane of <strong>~100B rows / ~100 TiB / up to ~4,000 columns</strong>; point-lookup latency went from <strong>~8 s to ~20 ms</strong>, proven flat across 19× data growth; and along the way I root-caused a chain of engine-level failures, from a Parquet footer explosion that OOMed every backend on a bare <code>COUNT(*)</code> to a compaction death spiral driven by a 46× compression collapse.</p>
 <h2 id="Why-we-left-ClickHouse-it-was-still-faster">Why we left ClickHouse (it was still faster)</h2>
 <p>ClickHouse was winning flat-table scans by <strong>1.2–2.5×</strong> on our own primary-source benchmarks when we decided to leave it. The migration case was structural, and it took discipline to keep it that way, because “the new engine is faster” is the story everyone wants to tell and the one that falls apart under cross-examination.</p>
 <p>Four compromises drove the decision:</p>
@@ -325,7 +324,7 @@
   B2 --&gt;|workload group| Q2[&quot;CPU / memory / concurrency caps&quot;]</div>
 <p>The design insight worth stating explicitly: compute-storage separation does not remove state. It concentrates state into one layer (MetaService, FoundationDB, the S3 recycler) — and that layer is precisely where you can no longer cut corners. Three new stateful failure domains replaced “disks attached to every node,” and the operational work below reflects that trade.</p>
 <h2 id="The-migration-was-a-memory-engineering-problem">The migration was a memory-engineering problem</h2>
-<p>A ~3,700-column table breaks the naive “export to Parquet, bulk load” path in four places, none of them obvious, and adding hardware fixes none of them:</p>
+<p>A ~4,000-column table breaks the naive “export to Parquet, bulk load” path in four places, none of them obvious, and adding hardware fixes none of them:</p>
 <ul>
 <li>
 <p><strong>The footer bomb.</strong> A Parquet footer scales with <code>row_groups × columns</code>. Our early objects carried a <strong>2.12 GB</strong> footer; the reader OOMed all eight backends before touching a single row of data. The tell: even a bare <code>COUNT(*)</code> died — proof that metadata parsing, not data scanning, was exploding. Fix: restructure the objects, footer down ~9×.</p>
@@ -340,7 +339,7 @@
 <p><strong>Load memory grows with the table, not the batch.</strong> At <strong>~1.7 B</strong> rows loaded, identical load jobs began breaching the memory ceiling and livelocking: merge-on-write delete-bitmap maintenance and wide-table compaction scale with accumulated table size. A watchdog (soft-stop / hard-kill thresholds, atomic aborts, idempotent retries) held the line; dropping to single-stream concurrency resolved it with zero data loss — throughput was export-paced anyway.</p>
 </li>
 </ul>
-<p>The pipeline that emerged is byte-budget-scheduled, checkpointed per object, safe to kill at any point, and moved <strong>~19,500 rows/s</strong> on four backends — about <strong>50×</strong> the small-batch alternative on a 3,700-column schema. One result I have not seen published anywhere: on schemas this wide, <strong>column count alone swings write throughput ~5×, while the full correctness stack (merge-on-write dedup, three inverted indexes, ZSTD) costs under 4–12%</strong>. The expensive-looking features are nearly free; the width is the cost.</p>
+<p>The pipeline that emerged is byte-budget-scheduled, checkpointed per object, safe to kill at any point, and moved <strong>~19,500 rows/s</strong> on four backends — about <strong>50×</strong> the small-batch alternative on a 4,000-column schema. One result I have not seen published anywhere: on schemas this wide, <strong>column count alone swings write throughput ~5×, while the full correctness stack (merge-on-write dedup, three inverted indexes, ZSTD) costs under 4–12%</strong>. The expensive-looking features are nearly free; the width is the cost.</p>
 <h2 id="The-workload-was-not-what-we-thought">The workload was not what we thought</h2>
 <p>The original serving-table plan was built on a curated 50-query benchmark. Before committing to an irreversible layout, I mined 14 days of production <code>system.query_log</code> — <strong>74.7 M</strong> log rows — and the picture inverted: <strong>the overwhelming majority of traffic (well over 90%) was point lookups</strong> keyed on one high-cardinality user identifier, and most of those were unbounded “latest value” reconstructions that no time filter could be retrofitted onto. A second serving table went from “maybe” to mandatory. Designing from the benchmark would have optimized the wrong workload.</p>
 <p>Then the physics lesson. Point lookups on the initial table layout ran <strong>7–13 s</strong> against ClickHouse’s 21 ms. The reflex fix — bloom filters — cut rows scanned by <strong>73%</strong> and moved wall-clock time not at all: one active user’s rows were scattered across <strong>2,044</strong> partition files, and the floor was file-open count, not rows scanned. (We also proved, byte-level, that two common write paths silently ignore declared bloom-filter table properties.) <strong>Indexes cannot fix a layout problem.</strong> The fix was physical re-clustering: a Doris-native table distributed by hash on the user key. Because a distribution key is the one decision you cannot ALTER later, we ran a two-table A/B — same data, mirrored keys, four measurements — before committing. Result: <strong>16–24 ms warm</strong>, re-measured at three checkpoints during the live migration (15M → 107M → 286M rows) to prove the latency stays flat as the table grows 19×.</p>
@@ -377,23 +376,23 @@
 
     <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tech/tags/SRE/" rel="tag"># SRE</a>
-              <a href="/tech/tags/Apache-Doris/" rel="tag"># Apache Doris</a>
-              <a href="/tech/tags/ClickHouse/" rel="tag"># ClickHouse</a>
-              <a href="/tech/tags/OLAP/" rel="tag"># OLAP</a>
-              <a href="/tech/tags/Storage-Engine/" rel="tag"># Storage Engine</a>
+              <a href="/tech-en/tags/SRE/" rel="tag"># SRE</a>
+              <a href="/tech-en/tags/Apache-Doris/" rel="tag"># Apache Doris</a>
+              <a href="/tech-en/tags/ClickHouse/" rel="tag"># ClickHouse</a>
+              <a href="/tech-en/tags/OLAP/" rel="tag"># OLAP</a>
+              <a href="/tech-en/tags/Storage-Engine/" rel="tag"># Storage Engine</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/tech/2026/08/03/2026-08-03_designing-the-elastic-compute-tier_en/" rel="prev" title="Designing the Elastic Compute Tier: Discrete Capacity, One Write Primitive, Readiness That Cannot Lie">
+                <a href="/tech-en/2026/08/03/2026-08-03_designing-the-elastic-compute-tier_en/" rel="prev" title="Designing the Elastic Compute Tier: Discrete Capacity, One Write Primitive, Readiness That Cannot Lie">
                   <i class="fa fa-angle-left"></i> Designing the Elastic Compute Tier: Discrete Capacity, One Write Primitive, Readiness That Cannot Lie
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/tech/2026/08/03/2026-08-03_engine-level-query-routing_en/" rel="next" title="Engine-Level Query Routing: EXPLAIN ROUTE PLAN">
+                <a href="/tech-en/2026/08/03/2026-08-03_engine-level-query-routing_en/" rel="next" title="Engine-Level Query Routing: EXPLAIN ROUTE PLAN">
                   Engine-Level Query Routing: EXPLAIN ROUTE PLAN <i class="fa fa-angle-right"></i>
                 </a>
             </div>
@@ -421,7 +420,7 @@
     </span>
     <span class="author" itemprop="copyrightHolder">Rui Shao</span>
   </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a>
   </div>
 
     </div>
@@ -434,7 +433,7 @@
     <span class="toggle-line"></span>
   </div>
   <div class="sidebar-dimmer"></div>
-  <div class="back-to-top" role="button" aria-label="返回顶部">
+  <div class="back-to-top" role="button" aria-label="Back to top">
     <i class="fa fa-arrow-up fa-lg"></i>
     <span>0%</span>
   </div>
